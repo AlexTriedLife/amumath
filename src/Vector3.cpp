@@ -55,8 +55,27 @@ float Vector3::Magnitude() const {
     return std::sqrt(LengthSquared());
 }
 
+void Vector3::Normalize()   {
+    float len_sq = LengthSquared();
+    // Check if sqrt is necessary <practically zero: less than epsilon>
+    if (len_sq > 1e-6)  {
+        // Mult by 1 / magnitude<square root of length squared> so we only call sqrt once
+        float iMag = 1.0f / std::sqrt(len_sq);
+        x *= iMag; y*= iMag; z *= iMag;
+    }   else {
+        // Sqrt is not needed so we set the current instance to the zero vector
+        *this = Zero();
+    }
+
+    // Normalize 
+}
+
 
 // Helpers
+const Vector3 Vector3::Zero() {
+    return {0.0f, 0.0f, 0.0f};
+}
+
 float LengthSquared(const Vector3 &u)   {
     return {
         u.x * u.x +

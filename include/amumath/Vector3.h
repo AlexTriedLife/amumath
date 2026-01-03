@@ -32,9 +32,12 @@ struct Vector3 {
   // Function operations
   float Dot(const Vector3 &other) const;
   float Magnitude() const;
+  void Normalize();
+  Vector3 Normalized() const;
 
   // Helper functions
   float LengthSquared() const;
+  const Vector3 Zero();
 
 };
 
