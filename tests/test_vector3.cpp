@@ -52,7 +52,7 @@ TEST_F(Vector3Test, HandlesEquality) {
   EXPECT_FALSE(v1 == big_diff);
 }
 
-// Test vector arithmetic (+ and -)
+// Test vector arithmetic
 TEST_F(Vector3Test, HandlesAdditionSubtraction) {
   amumath::Vector3 sum = v1 + v2;  // (1 + 4, 2 + 5, 3 + 6)
   amumath::Vector3 diff = v2 - v1; // (4 - 1, 5 - 2, 6 - 3)
@@ -72,3 +72,47 @@ TEST_F(Vector3Test, HandlesAdditionSubtraction) {
   EXPECT_FLOAT_EQ(neg.z, -3.0f);
 
 }
+
+// Test scalar operations: multiplication and division
+TEST_F(Vector3Test, HandlesScalarMath)  {
+    // Member multiplication v * s
+    amumath::Vector3 doubled = v1 * 2.0f;
+    EXPECT_TRUE(doubled == amumath::Vector3(2.0f, 4.0f, 6.0f));
+
+    // Free function multiplication s * v [Commutative]
+    amumath::Vector3 com = 2.0f * v1; 
+    // Test s * v and v * s ensuring they perform the same behaviour
+    EXPECT_TRUE(com == doubled);
+
+    // Division
+    amumath::Vector3 halved = v2 / 2.0f;
+    EXPECT_TRUE(halved == amumath::Vector3(2.0f, 2.5f, 3.0f));
+
+    // TODO: Later division by zero
+}
+
+// Vector operations
+// Test dot product
+TEST_F(Vector3Test, HandlesDotProduct) {
+    // Perpendicular dot products should be 0
+    EXPECT_FLOAT_EQ(unitX.Dot(unitY), 0.0f);
+    
+    // Dot product of unit vectors should be 1
+    EXPECT_FLOAT_EQ(unitX.Dot(unitX), 1.0f);
+    
+    // Opposite unit vectors should be -1
+    // Negative unit vector
+    amumath::Vector3 negX {-1.0f, 0.0f, 0.0f};
+    EXPECT_FLOAT_EQ(unitX.Dot(negX), -1.0f);
+}
+
+
+
+
+
+
+
+
+
+
+
