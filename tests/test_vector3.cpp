@@ -19,10 +19,17 @@ TEST_F(Vector3Test, HandlesAddition) {
 
 // Test vector equality ==
 TEST_F(Vector3Test, HandlesEquality)    {
+    amumath::Vector3 almost_eq_vec = {1.0f, 2.1f, 3.1f};
     amumath::Vector3 equal_vec = {1.0f, 2.0f, 3.0f};
 
-    EXPECT_EQ(equal_vec.x, v1.x);
-    EXPECT_EQ(equal_vec.y, v1.y);
-    EXPECT_EQ(equal_vec.z, v1.z);
+    // Test !=
+    EXPECT_TRUE(v1 != almost_eq_vec);
+    EXPECT_TRUE(v1 != v2);
+    EXPECT_FALSE(v1 != equal_vec);
+
+    // Test ==
+    EXPECT_TRUE(v1 == equal_vec);
+    EXPECT_FALSE(v1 == almost_eq_vec);
+    EXPECT_FALSE(v1 == v2);
 
 }

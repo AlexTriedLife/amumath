@@ -15,7 +15,9 @@ struct Vector3 {
 
   // ToDo: Scalar mult, subtraction, equality, division, dot product, cross
   // product, etc.
-  Vector3 operator==(const Vector3 &other) const;
+  bool operator==(const Vector3 &other) const;
+
+  bool operator!=(const Vector3 &other) const;
 };
 } // namespace amumath
 
