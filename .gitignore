@@ -7,3 +7,6 @@ compile_commands.json
 
 .DS_Store
 
+scripts/
+
+test_calc.py

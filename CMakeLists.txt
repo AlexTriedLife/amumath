@@ -14,6 +14,13 @@ FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/refs/heads/main.zip
 )
+
+# Pybind 11 for terminal implementation
+FetchContent_Declare(
+  pybind11
+  URL https://github.com/pybind/pybind11/archive/refs/tags/v2.11.1.zip
+)
+FetchContent_MakeAvailable(pybind11)
 # shared libraries to avoid static linking
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
@@ -21,3 +28,4 @@ FetchContent_MakeAvailable(googletest)
 # Modules
 add_subdirectory(src)
 add_subdirectory(tests)
+add_subdirectory(bindings)
