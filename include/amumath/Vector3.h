@@ -24,6 +24,7 @@ struct Vector3 {
   Vector3 operator*(const float s) const;
 
   // TODO: scalar division
+  // TODO: Cross product <Make a matrix first>
   Vector3 operator/(const float s) const;
   // Make vector negative
   Vector3 operator-() const;
@@ -32,6 +33,7 @@ struct Vector3 {
 
   // Function operations
   float dot(const Vector3 &other) const;
+
 };
 
 // Dot Product as a free function
