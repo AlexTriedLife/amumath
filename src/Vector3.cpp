@@ -1,5 +1,5 @@
 #include "amumath/Vector3.h"
-#include <cmath>
+#include <format>
 
 namespace amumath {
 // 3 arg constructor
@@ -72,6 +72,10 @@ const Vector3 Vector3::Zero() { return {0.0f, 0.0f, 0.0f}; }
 
 float LengthSquared(const Vector3 &u) {
   return u.x * u.x + u.y * u.y + u.z * u.z;
+}
+
+std::string Vector3::ToString() const {
+    return std::format("({}, {}, {})", x, y, z);
 }
 
 // Free functions

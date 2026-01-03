@@ -1,6 +1,7 @@
 #ifndef VECTOR3_H
 #define VECTOR3_H
-
+#include <cmath>
+#include <string>
 namespace amumath {
 struct Vector3 {
   float x, y, z;
@@ -38,6 +39,7 @@ struct Vector3 {
   // Helper functions
   float LengthSquared() const;
   const Vector3 Zero();
+  std::string ToString() const;
 
 };
 
