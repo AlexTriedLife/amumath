@@ -8,6 +8,7 @@ using namespace amumath;
 PYBIND11_MODULE(amumath_py, m) {
     m.doc() = "AMUMath Python Plugin";
 
+    // Create Vector3 as a python class
     py::class_<Vector3>(m, "Vector3")
         .def(py::init<float, float, float>(), py::arg("x")=0, py::arg("y")=0, py::arg("z")=0)
         .def_readwrite("x", &Vector3::x)
